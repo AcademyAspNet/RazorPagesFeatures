@@ -1,0 +1,67 @@
+﻿@page
+@model RazorPagesFeatures.Pages.SyntaxModel
+
+<!-- Обычная HTML разметка -->
+
+<h1>Привет, мир!</h1>
+
+@* Экранирование символа @ *@
+
+<p>@@Username</p>
+
+<a href="mailto:example@mail.ru">Example@Mail.Ru</a>
+
+<!-- Неявные Razor выражения -->
+
+<p>@DateTime.Now --- @DateTime.Now.ToShortTimeString()</p>
+<p>@DateTime.Now.Year</p>
+<p>@DateTime.Now.Month</p>
+<p>@DateTime.Now.Day</p>
+<p>@DateTime.IsLeapYear(DateTime.Now.Year)</p>
+
+<!-- Явные Razor выражения -->
+
+<p>
+	Неделю назад была следующая дата: @(DateTime.Now - TimeSpan.FromDays(64))
+</p>
+
+@("<h1>Hello, world!</h1>")
+
+@* @Html.Raw("<h1>Hello, world!</h1><script>alert('Alert!');</script>") *@
+
+<!-- Блоки кода в Razor -->
+
+@{
+	string simpleText = "Simple Text";
+}
+
+<p>@simpleText</p>
+
+@{
+	simpleText = "" + (new Random()).Next();
+}
+
+<h2>@simpleText</h2>
+
+@{
+	void DisplayName(string name)
+	{
+		<p>Name: <b>@name</b></p>
+	}
+
+	for (int i = 0; i < 100; i++)
+	{
+		DisplayName($"User #{i}");
+	}
+}
+
+<h3>
+	@{
+		void DisplayNameAsText(string name)
+		{
+			@:My name is: @name
+		}
+
+		DisplayNameAsText("Bob");
+	}
+</h3>
