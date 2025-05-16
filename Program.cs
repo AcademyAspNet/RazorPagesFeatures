@@ -7,7 +7,12 @@ namespace RazorPagesFeatures
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddRazorPages();
+            builder.Services.AddRazorPages().AddRazorPagesOptions(options =>
+            {
+                //options.Conventions.AddPageRoute("/Index", "{*url}");
+                options.Conventions.AddPageRoute("/Contact", "/Kontakt");
+                options.Conventions.AddPageRoute("/User", "/buildings/abc/users/{name?}");
+            });
 
             var app = builder.Build();
 

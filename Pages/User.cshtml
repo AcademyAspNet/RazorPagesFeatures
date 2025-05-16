@@ -1,0 +1,17 @@
+﻿@page "{name=Some user}"
+@model RazorPagesFeatures.Pages.UserModel
+@{
+}
+
+<h1>User Page</h1>
+<hr />
+<p>User Name: @RouteData.Values["name"]</p>
+@* <p>User Email: @RouteData.Values["email"]</p> *@
+
+@{
+	string homepage = "/Index";
+}
+
+<a asp-area="Customers" asp-page="@homepage">To Home Page</a>
+
+<p>OrderBy: @Model.OrderBy</p>
