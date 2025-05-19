@@ -1,0 +1,68 @@
+﻿@page
+@model RazorPagesFeatures.Pages.SimpleFormModel
+
+<h1>Simple Form</h1>
+<hr />
+
+@* <form method="post"> *@
+@* 	<label for="FirstName">Имя:</label> *@
+@* 	<input type="text" name="FirstName" /><br /> *@
+
+@* 	<input type="checkbox" checked /><br /> *@
+@* 	<input type="color" value="#ffffff" /><br /> *@
+@* 	<input type="date" /><br /> *@
+@* 	<input type="email" /><br /> *@
+@* 	<input type="file" /><br /> *@
+@* 	<input type="hidden" name="user" value="123" /><br /> *@
+@* 	<input type="image" /><br /> *@
+@* 	<input type="number" /><br /> *@
+@* 	<input type="password" /><br /> *@
+@* 	<input type="radio" /><br /> *@
+@* 	<input type="range" /><br /> *@
+@* 	<input type="search" /><br /> *@
+@* 	<input type="submit" /><br /> *@
+@* 	<input type="tel" /><br /> *@
+@* 	<input type="url" /><br /> *@
+
+@* 	<input type="datetime-local" /><br /> *@
+@* 	<input type="month" /><br /> *@
+@* 	<input type="week" /><br /> *@
+@* 	<input type="time" /><br /> *@
+
+@* 	<textarea rows="15"></textarea> *@
+
+@* 	<select name="pets"> *@
+@* 		<option value="">Выберите домашнее животное</option> *@
+@* 		<option value="dog">Dog 123</option> *@
+@* 		<option value="cat">Cat 321</option> *@
+@* 	</select> *@
+
+@* 	<hr /> *@
+@* 	<button type="submit">Отправить</button> *@
+@* </form> *@
+
+@if (Model.IsPost)
+{
+	<p>Login: @Model.Login</p>
+	<p>Password: @Model.Password</p>
+	<p>Color: @Model.Color</p>
+}
+
+<form method="post">
+	<label asp-for="Login">Логин</label>
+	<input asp-for="Login" />
+
+	<br /><br />
+
+	<label asp-for="Password">Пароль</label>
+	<input asp-for="Password" />
+
+	<br /><br />
+
+	<label asp-for="Color">Цвет</label>
+	<input type="color" asp-for="Color" />
+
+	<hr />
+
+	<button type="submit">Войти</button>
+</form>
